@@ -23,8 +23,8 @@ init =
 view : Model -> Html Msg
 view model =
   div []
-    [ input [ placeholder "Text to reverse", value model.content, onInput Change ] []
-    , div [] [ text (slugger model.content) ]
+    [ input [ placeholder "Company name", value model.content, onInput Change ] []
+    , div [] [ text ("Slug: " ++ slugger model.content) ]
     ]
 
 -- MESSAGE
