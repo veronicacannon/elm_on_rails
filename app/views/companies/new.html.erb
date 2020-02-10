@@ -1,0 +1,38 @@
+<%= javascript_pack_tag "hello_elm" %>
+
+<%= form_with(model: @company, local: true) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <ul>
+        <% @company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="here-elm">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: "company_name" %>
+  </div>
+
+  <div>
+    <%= f.label :slug %>
+    <%= f.hidden_field :slug, value: "bananaslug", id: "company_slug" %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone, id: "company_phone" %>
+  </div>
+  
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location, id: "company_location" %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
