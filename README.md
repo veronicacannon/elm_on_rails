@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo is a simple spike to experiment using Elm to embed input fields into a Rails form.
 
-Things you may want to cover:
+* Rails 6
 
-* Ruby version
+* Webpacker
 
-* System dependencies
+The Rails app has:
+* model for a company with name, slug, phone and location
+* html.erb with a form to add new company
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The Elm function:
+* embeds name and slug field into Rails form
+* generates slug based on name field by stripping out any characters that aren't
+letters, numbers, hyphen or underscore.
