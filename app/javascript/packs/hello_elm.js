@@ -7,11 +7,7 @@ import {
 } from '../Main'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const target = document.createElement('div')
-  // const target = document.getElementById('here-elm')
+  const target = document.getElementById('here-elm')
 
-  document.body.appendChild(target)
-  Elm.Main.init({
-    node: target
-  })
+  Elm.Main.init({node: target})
 })

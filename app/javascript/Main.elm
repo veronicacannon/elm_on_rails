@@ -9,13 +9,15 @@ import Html.Events exposing (onInput)
 
 
 type alias Model =
-  { content : String
+  { name : String
+  , slug : String
   }
 -- INIT
 
 init : Model
 init =
-  { content = "" }
+  { name = ""
+  , slug = "" }
 
 -- VIEW
 
@@ -24,9 +26,11 @@ view : Model -> Html Msg
 view model =
   div []
     [ label [for "company_name"] [ text "Name"]
-    , input [ type_ "text", id "company_name", name "company[name]", value model.content, onInput Change ] []
-    , div [] [ text ("Slug: " ++ slugger model.content) ]
+    , input [ type_ "text", id "company_name", name "company[name]", value model.name, onInput Change ] []
+    , label [for "company_slug"] [ text "Slug"]
+    , input [ type_ "text", name "company[slug]", value (slugger model.name)] []
     ]
+  
 
 -- MESSAGE
 
@@ -50,7 +54,7 @@ update : Msg -> Model -> Model
 update msg model =
   case msg of
     Change newContent ->
-      { model | content = newContent }
+      { model | name = newContent }
 
 -- SUBSCRIPTIONS
 
