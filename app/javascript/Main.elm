@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, div, label, input, text)
+import Html exposing (Html, div, section, label, input, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
 
@@ -24,13 +24,10 @@ init =
 
 view : Model -> Html Msg
 view model =
-  div []
-    [ label [for "company_name"] [ text "Name"]
-    , input [ type_ "text", id "company_name", name "company[name]", value model.name, onInput Change ] []
-    , label [for "company_slug"] [ text "Slug"]
-    , input [ type_ "text", name "company[slug]", value (slugger model.name)] []
-    ]
-  
+  div [] [
+    div [] [ label [for "company_name"] [ text "Name"], input [ type_ "text", id "company_name", name "company[name]", value model.name, onInput Change ] [] ],
+    div [] [ label [for "company_slug"] [ text "Slug"], input [ type_ "text", name "company[slug]", value (slugger model.name)] [] ]
+  ]
 
 -- MESSAGE
 

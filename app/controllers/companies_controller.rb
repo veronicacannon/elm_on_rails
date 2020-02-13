@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(company_params)
+    @company.save
     redirect_to action: 'new'
   end
 
